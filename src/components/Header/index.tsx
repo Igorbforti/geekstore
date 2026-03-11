@@ -18,7 +18,7 @@ import {
   SearchButton,
 } from "./style";
 import Logo from "../../assets/geekstore-logo.svg";
-import Menu from "../Menu";
+import Menu from "./Menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
