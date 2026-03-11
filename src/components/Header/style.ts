@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
+  background-color: #fff;
 
   @media (min-width: 768px) {
     align-items: center;
