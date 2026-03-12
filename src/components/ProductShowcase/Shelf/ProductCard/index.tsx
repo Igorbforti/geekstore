@@ -8,12 +8,16 @@ import {
   PriceContainer,
   RatingsContainer,
 } from "./style";
+import { useContext } from "react";
+import { ProductContext } from "../../../contexts/ProductContext";
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+const { handleAddToCart } = useContext(ProductContext);
+    
   return (
     <Card>
       <CardHeader>
@@ -43,7 +47,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <span>R${product.sellerPrice}</span>
           </PriceContainer>
         </CardInfo>
-        <a href="/">
+        <a onClick={(e) => handleAddToCart(product, e)}>
           <ShoppingCartIcon />
           Adicionar
         </a>

@@ -1,5 +1,10 @@
 import Shelf from "./Shelf";
-import { ProductShowcaseContainer, ShowCaseButton, ShowCaseDescription, ShowCaseTitle } from "./style";
+import {
+  ProductShowcaseContainer,
+  ShowCaseButton,
+  ShowCaseDescription,
+  ShowCaseTitle,
+} from "./style";
 
 const ProductShowcase = () => {
   return (

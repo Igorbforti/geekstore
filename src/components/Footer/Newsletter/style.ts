@@ -51,7 +51,7 @@ export const NewsletterContainer = styled.div`
       flex-direction: row;
     }
 
-    input[type="text"] {
+    input[type="email"] {
       width: inherit;
       background-color: #fff;
       border: none;
@@ -75,6 +75,7 @@ export const NewsletterContainer = styled.div`
       padding: 0.5rem 1.5rem;
       background-color: #f5ab00;
 
+      cursor: pointer;
       font-size: 0.875rem;
       font-weight: 500;
       line-height: 20px;

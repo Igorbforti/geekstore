@@ -33,7 +33,7 @@ export const ProductWrapper = styled.div`
     list-style: none;
 
     @media (min-width: 768px) {
-        bottom: -35px;
+      bottom: -35px;
     }
 
     .slick-active {

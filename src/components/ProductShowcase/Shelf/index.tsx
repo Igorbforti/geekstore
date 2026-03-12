@@ -11,16 +11,19 @@ const Shelf = () => {
     dots: true,
     infinite: true,
     speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     responsive: [
-    {
-      breakpoint: 768,
+      {
+      breakpoint: 480,
       settings: {
-        slidesToShow: 1
+        slidesToShow: 1,
+        slidesToScroll: 1
       }
     }
-  ]
+    ],
   };
 
   return (

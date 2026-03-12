@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Topbar from "../Topbar";
 import {
   ListIcon,
@@ -19,9 +19,12 @@ import {
 } from "./style";
 import Logo from "../../assets/geekstore-logo.svg";
 import Menu from "./Menu";
+import { ProductContext } from "../contexts/ProductContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { cartItems } = useContext(ProductContext);
 
   return (
     <HeaderContainer>
@@ -49,6 +52,7 @@ const Header = () => {
               </a>
               <a href="/">
                 <ShoppingCartIcon size={24} color="#0A0A0A" />
+                {cartItems.length > 0 && <span>{cartItems.length}</span>}
               </a>
             </LinkContainer>
           </MainContainer>
@@ -79,6 +83,7 @@ const Header = () => {
               <a href="/">
                 <ShoppingCartIcon size={24} color="#0A0A0A" />
                 Carrinho
+                {cartItems.length > 0 && <span>{cartItems.length}</span>}
               </a>
             </LinkContainer>
           </MainContainer>

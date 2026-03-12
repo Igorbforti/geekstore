@@ -45,6 +45,34 @@ export const LinkContainer = styled.div`
   justify-content: flex-end;
   gap: 0.5rem;
 
+  a {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.25rem;
+      height: 1.25rem;
+
+      border-radius: 50%;
+      background-color: #f5ab00;
+      color: #09235c;
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 16px;
+      letter-spacing: 0;
+
+      @media (min-width: 768px) {
+        top: -12px;
+        right: -12px;
+      }
+    }
+  }
+
   @media (min-width: 768px) {
     gap: 1rem;
 
