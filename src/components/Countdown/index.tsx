@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  CountdownContainer,
-  CountdownWrapper,
-} from "./style";
+import { CountdownContainer, CountdownWrapper } from "./style";
 
 interface CountdownProps {
   targetDate: string;
@@ -15,28 +12,30 @@ const Countdown = ({ targetDate }: CountdownProps) => {
   const [second, setSecond] = useState(0);
 
   useEffect(() => {
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
+    const secondInMs = 1000;
+    const minuteInMs = secondInMs * 60;
+    const hourInMs = minuteInMs * 60;
+    const dayInMs = hourInMs * 24;
 
-    const countDown = new Date(targetDate).getTime();
     const interval = setInterval(() => {
+      const target = new Date(targetDate).getTime();
       const now = new Date().getTime();
-      const diff = countDown - now;
+      const diff = target - now;
 
       if (diff > 0) {
-        setDay(Math.floor(diff / day));
-        setHour(Math.floor((diff % day) / hour));
-        setMinute(Math.floor((diff % hour) / minute));
-        setSecond(Math.floor((diff % minute) / second));
+        setDay(Math.floor(diff / dayInMs));
+        setHour(Math.floor((diff % dayInMs) / hourInMs));
+        setMinute(Math.floor((diff % hourInMs) / minuteInMs));
+        setSecond(Math.floor((diff % minuteInMs) / secondInMs));
       } else {
         clearInterval(interval);
       }
-    }, second);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [targetDate]);
+
+  const finished = day === 0 && hour === 0 && minute === 0 && second === 0;
 
   return (
     <>
@@ -44,22 +43,28 @@ const Countdown = ({ targetDate }: CountdownProps) => {
         <h2>Black Friday GeekStore</h2>
         <h3>Todos os produtos com até 50% de desconto!</h3>
         <CountdownWrapper>
-          <div>
-            <span>{day <= 9 ? "0" + day : day}</span>
-            <small>Dias</small>
-          </div>
-          <div>
-            <span>{hour <= 9 ? "0" + hour : hour}</span>
-            <small>Horas</small>
-          </div>
-          <div>
-            <span>{minute <= 9 ? "0" + minute : minute}</span>
-            <small>Minutos</small>
-          </div>
-          <div>
-            <span>{second <= 9 ? "0" + second : second}</span>
-            <small>Segundos</small>
-          </div>
+          {finished ? (
+            <span>Tempo esgotado!</span>
+          ) : (
+            <>
+              <div>
+                <span>{String(day).padStart(2, "0")}</span>
+                <small>Dias</small>
+              </div>
+              <div>
+                <span>{String(hour).padStart(2, "0")}</span>
+                <small>Horas</small>
+              </div>
+              <div>
+                <span>{String(minute).padStart(2, "0")}</span>
+                <small>Minutos</small>
+              </div>
+              <div>
+                <span>{String(second).padStart(2, "0")}</span>
+                <small>Segundos</small>
+              </div>
+            </>
+          )}
         </CountdownWrapper>
       </CountdownContainer>
     </>

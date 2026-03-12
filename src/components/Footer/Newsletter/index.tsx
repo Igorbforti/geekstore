@@ -7,7 +7,7 @@ const Newsletter = () => {
 
   const toastProps: ToastOptions = {
     position: "top-center",
-    autoClose: 3000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: false,
     pauseOnHover: true,

@@ -8,7 +8,7 @@ import {
 } from "./style";
 
 const ProductShowcase = () => {
-  const targetDate = "2026-11-28T23:59:59";
+  const targetDate = "2026-11-12T23:59:59";
 
   return (
     <ProductShowcaseContainer>
