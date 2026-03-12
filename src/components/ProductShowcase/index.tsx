@@ -1,3 +1,4 @@
+import Countdown from "../Countdown";
 import Shelf from "./Shelf";
 import {
   ProductShowcaseContainer,
@@ -7,6 +8,8 @@ import {
 } from "./style";
 
 const ProductShowcase = () => {
+  const targetDate = "2026-11-28T23:59:59";
+
   return (
     <ProductShowcaseContainer>
       <div>
@@ -14,7 +17,7 @@ const ProductShowcase = () => {
         <ShowCaseDescription>
           Os melhores jogos e acessórios selecionados especialmente para você
         </ShowCaseDescription>
-
+        <Countdown targetDate={targetDate} />
         <Shelf />
 
         <ShowCaseButton href="/">Ver Todos os Produtos</ShowCaseButton>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProductWrapper = styled.div`
   position: relative;
   width: 100%;
-  margin: 3.656rem 0;
+  margin: 1.5rem 0 3.656rem;
 
   .slick-slide {
     > div {

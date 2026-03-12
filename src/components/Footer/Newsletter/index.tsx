@@ -19,9 +19,9 @@ const Newsletter = () => {
 
   function handleNewslleterSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if(email.length !== 0) {
-      setEmail("")
-      toast.success(`O email ${email} foi cadastrado`, toastProps)
+    if (email.length !== 0) {
+      setEmail("");
+      toast.success(`O email ${email} foi cadastrado`, toastProps);
     }
   }
 

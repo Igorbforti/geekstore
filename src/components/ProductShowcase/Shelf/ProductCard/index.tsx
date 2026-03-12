@@ -16,8 +16,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
-const { handleAddToCart } = useContext(ProductContext);
-    
+  const { handleAddToCart } = useContext(ProductContext);
+
   return (
     <Card>
       <CardHeader>
