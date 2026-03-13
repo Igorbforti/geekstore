@@ -20,11 +20,15 @@ import {
 import Logo from "../../assets/geekstore-logo.svg";
 import Menu from "./Menu";
 import { ProductContext } from "../contexts/ProductContext";
+import Minicart from "./Minicart";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMinicartOpen, setIsMinicartOpen] = useState(false);
 
   const { cartItems } = useContext(ProductContext);
+
+  console.log("TESTE",cartItems)
 
   return (
     <HeaderContainer>
@@ -50,10 +54,16 @@ const Header = () => {
               <a href="/">
                 <UserIcon size={24} color="#0A0A0A" />
               </a>
-              <a href="/">
+              <a onClick={() => setIsMinicartOpen(!isMinicartOpen)}>
                 <ShoppingCartIcon size={24} color="#0A0A0A" />
                 {cartItems.length > 0 && <span>{cartItems.length}</span>}
               </a>
+
+              <Minicart
+                isMinicartOpen={isMinicartOpen}
+                setIsMinicartOpen={setIsMinicartOpen}
+                cartItems={cartItems}
+              />
             </LinkContainer>
           </MainContainer>
           <SearchBarContainer>
@@ -80,11 +90,17 @@ const Header = () => {
                 <UserIcon size={24} color="#0A0A0A" />
                 Entrar
               </a>
-              <a href="/">
+              <a onClick={() => setIsMinicartOpen(!isMinicartOpen)}>
                 <ShoppingCartIcon size={24} color="#0A0A0A" />
                 Carrinho
                 {cartItems.length > 0 && <span>{cartItems.length}</span>}
               </a>
+
+              <Minicart
+                isMinicartOpen={isMinicartOpen}
+                setIsMinicartOpen={setIsMinicartOpen}
+                cartItems={cartItems}
+              />
             </LinkContainer>
           </MainContainer>
           <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />

@@ -7,9 +7,6 @@ interface Props {
 }
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }: Props) => {
-  const handleLinkClick = () => {
-    setIsMenuOpen(false);
-  };
 
   return (
     <>
@@ -20,37 +17,37 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: Props) => {
           transform: isMenuOpen ? "translateX(0)" : "translateX(-100%)",
         }}
       >
-        <button onClick={() => setIsMenuOpen(false)} aria-label="Fechar menu">
+        <button onClick={() => setIsMenuOpen(false)}>
           <XIcon size={24} />
         </button>
 
         <ul>
           <li>
-            <a href="/" onClick={handleLinkClick}>
+            <a href="/">
               Jogos
               <CaretDownIcon size={12} color="#364153" />
             </a>
           </li>
 
           <li>
-            <a href="/" onClick={handleLinkClick}>
+            <a href="/">
               Consoles
               <CaretDownIcon size={12} color="#364153" />
             </a>
           </li>
 
           <li>
-            <a href="/" onClick={handleLinkClick}>
+            <a href="/">
               PC Gaming
             </a>
           </li>
           <li>
-            <a href="/" onClick={handleLinkClick}>
+            <a href="/">
               Colecionáveis
             </a>
           </li>
           <li>
-            <a href="/" onClick={handleLinkClick}>
+            <a href="/">
               Ofertas
             </a>
           </li>

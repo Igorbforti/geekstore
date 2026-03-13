@@ -28,7 +28,7 @@ export const MenuNav = styled.nav`
 
   background-color: #fff;
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     position: static;
     width: auto;
     height: auto;
@@ -39,7 +39,7 @@ export const MenuNav = styled.nav`
 
     transform: translateX(0) !important;
     display: block;
-  }
+  } */
 
   button {
     display: flex;
