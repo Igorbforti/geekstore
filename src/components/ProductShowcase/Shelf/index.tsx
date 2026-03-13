@@ -1,42 +1,42 @@
-import Slider from "react-slick";
 import { Products } from "../../../data/productsData";
 import ProductCard from "./ProductCard";
 import { ProductWrapper } from "./style";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 const products = Products;
 
 const Shelf = () => {
-  const settings = {
-    arrows: false,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    responsive: [
-      {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    ],
-  };
-
   return (
     <ProductWrapper>
-      <Slider {...settings}>
+      <Splide options={{
+        perPage: 4,
+        arrows: true,
+        pagination: true,
+        rewind: true,
+
+        breakpoints: {
+          1024: {
+            perPage: 3,
+          },
+          768: {
+            perPage: 2,
+          },
+          480: {
+            perPage: 1,
+          },
+        },
+      }}>
         {products.map((product) => {
           return (
-            <div key={product.id}>
+            <SplideSlide key={product.id}>
+            <div>
               <ProductCard product={product} />
             </div>
+            </SplideSlide>
           );
         })}
-      </Slider>
+      </Splide>
     </ProductWrapper>
   );
 };

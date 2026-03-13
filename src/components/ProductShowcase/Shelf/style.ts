@@ -5,26 +5,15 @@ export const ProductWrapper = styled.div`
   width: 100%;
   margin: 1.5rem 0 3.656rem;
 
-  .slick-slide {
+  .splide__slide {
     > div {
-      > div {
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
-  .slick-slider {
-    overflow: hidden;
-  }
-
-  .slick-track {
-    display: flex;
-    align-items: center;
-  }
-
-  .slick-dots {
+  .splide__pagination {
     position: absolute;
     bottom: -15px;
     display: flex !important;
@@ -36,31 +25,24 @@ export const ProductWrapper = styled.div`
       bottom: -35px;
     }
 
-    .slick-active {
-      button {
-        font-size: 0;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: #f5ab00;
-        border: none;
-      }
+    .splide__pagination__page {
+      margin: 0 2px;
+      font-size: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ada3a380;
+      border: none;
+      transform: scale(1);
     }
 
-    li {
-      width: 15px;
-      height: 20px;
-      margin: 0 2px;
-      button {
-        font-size: 0;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: #ada3a380;
-        border: none;
-        &::before {
-        }
-      }
+    .splide__pagination__page.is-active {
+      font-size: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #f5ab00;
+      border: none;
     }
   }
 `;
