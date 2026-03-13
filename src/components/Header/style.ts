@@ -45,7 +45,7 @@ export const LinkContainer = styled.div`
   justify-content: flex-end;
   gap: 0.5rem;
 
-  a {
+  button {
     position: relative;
 
     span {
@@ -76,7 +76,7 @@ export const LinkContainer = styled.div`
   @media (min-width: 768px) {
     gap: 1rem;
 
-    a {
+    button {
       display: flex;
       align-items: center;
       gap: 0.875rem;

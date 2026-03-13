@@ -21,18 +21,9 @@ export const MinicartNav = styled.nav`
 
   background-color: #fff;
 
-  /* @media (min-width: 768px) {
-    position: static;
-    width: auto;
-    height: auto;
-
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
-
-    transform: translateX(0) !important;
-    display: block;
-  } */
+  @media (min-width: 768px) {
+    width: 30%;
+  }
 `;
 export const MinicartHeader = styled.div`
   width: 100%;
@@ -63,7 +54,12 @@ export const MinicartHeader = styled.div`
 export const MinicartContent = styled.div`
   width: 100%;
   height: 100%;
+  margin: 1rem 0;
   overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   span {
     width: 100%;
@@ -83,20 +79,10 @@ export const MinicartContent = styled.div`
 
 export const MinicartFooter = styled.div`
   width: 100%;
-  padding: 0 1rem 1rem;
+  padding: 1rem;
   border-top: 1px solid #e5e7eb;
 
-  p {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: -0.15px;
-
-    margin: 1rem 0;
-    color: #364153;
-  }
-
-  a {
+  button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,7 +106,6 @@ export const MinicartWrapper = styled.div`
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem;
-  margin-top: 1rem;
 
   background-color: #f9fafb;
   border-radius: 8px;
@@ -133,7 +118,13 @@ export const MinicartWrapper = styled.div`
 
 export const MinicartBodyContainer = styled.div`
   width: 100%;
-  p {
+  > p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    height: 3rem;
     font-size: 1rem;
     font-weight: 500;
     line-height: 24px;
@@ -160,16 +151,24 @@ export const MinicartBodyContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.625rem;
+      gap: 1rem;
 
       input {
-        width: 3.125rem;
-        border: none;
-      }
-      button {
-        background-color: transparent;
+        width: 1rem;
         border: none;
       }
     }
   }
+`;
+
+export const QuantityContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const MinicartBaseButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

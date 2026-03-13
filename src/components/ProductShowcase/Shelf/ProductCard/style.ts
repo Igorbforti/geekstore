@@ -59,7 +59,7 @@ export const CardBody = styled.div`
     background-color: #f5ab00;
   }
 
-  a {
+  button {
     display: flex;
     justify-content: center;
     align-items: center;

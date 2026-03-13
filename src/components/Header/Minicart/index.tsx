@@ -1,11 +1,13 @@
-import { TrashIcon, XIcon } from "@phosphor-icons/react";
+import { MinusIcon, PlusIcon, TrashIcon, XIcon } from "@phosphor-icons/react";
 import {
+  MinicartBaseButton,
   MinicartBodyContainer,
   MinicartContent,
   MinicartFooter,
   MinicartHeader,
   MinicartNav,
   MinicartWrapper,
+  QuantityContainer,
 } from "./style";
 import { ProductContext, type CartItem } from "../../contexts/ProductContext";
 import { useContext } from "react";
@@ -17,7 +19,8 @@ interface Props {
 }
 
 const Minicart = ({ isMinicartOpen, setIsMinicartOpen, cartItems }: Props) => {
-  const { handleDeleteItem } = useContext(ProductContext);
+  const { handleAddToCart, handleDeleteItem, handleDecreaseQuantity } =
+    useContext(ProductContext);
 
   return (
     <MinicartNav
@@ -46,10 +49,24 @@ const Minicart = ({ isMinicartOpen, setIsMinicartOpen, cartItems }: Props) => {
                   <div>
                     <p>R$ {item.bestPrice}</p>
                     <div>
-                      <input type="quantity" value={item.quantity} />
-                      <button onClick={(e) => handleDeleteItem(item.id, e)}>
+                      <QuantityContainer>
+                        <MinicartBaseButton
+                          onClick={(e) => handleDecreaseQuantity(item.id, e)}
+                        >
+                          <MinusIcon size={14} color="364153" />
+                        </MinicartBaseButton>
+                        <input type="quantity" value={item.quantity} />
+                        <MinicartBaseButton
+                          onClick={(e) => handleAddToCart(item, e)}
+                        >
+                          <PlusIcon size={14} color="364153" />
+                        </MinicartBaseButton>
+                      </QuantityContainer>
+                      <MinicartBaseButton
+                        onClick={(e) => handleDeleteItem(item.id, e)}
+                      >
                         <TrashIcon size={20} color="#FB2C36" />
-                      </button>
+                      </MinicartBaseButton>
                     </div>
                   </div>
                 </MinicartBodyContainer>
@@ -59,8 +76,7 @@ const Minicart = ({ isMinicartOpen, setIsMinicartOpen, cartItems }: Props) => {
         )}
       </MinicartContent>
       <MinicartFooter>
-        <p>Total: {}</p>
-        <a href="/">Finalizar Compra</a>
+        <button>Finalizar Compra</button>
       </MinicartFooter>
     </MinicartNav>
   );

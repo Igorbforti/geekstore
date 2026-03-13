@@ -51,13 +51,13 @@ const Header = () => {
               <img src={Logo} alt="" />
             </div>
             <LinkContainer>
-              <a href="/">
+              <button>
                 <UserIcon size={24} color="#0A0A0A" />
-              </a>
-              <a onClick={() => setIsMinicartOpen(!isMinicartOpen)}>
+              </button>
+              <button onClick={() => setIsMinicartOpen(!isMinicartOpen)}>
                 <ShoppingCartIcon size={24} color="#0A0A0A" />
                 {cartItems.length > 0 && <span>{cartItems.length}</span>}
-              </a>
+              </button>
 
               <Minicart
                 isMinicartOpen={isMinicartOpen}
@@ -86,15 +86,15 @@ const Header = () => {
               </SearchButton>
             </SearchBarContainer>
             <LinkContainer>
-              <a href="/">
+              <button>
                 <UserIcon size={24} color="#0A0A0A" />
                 Entrar
-              </a>
-              <a onClick={() => setIsMinicartOpen(!isMinicartOpen)}>
+              </button>
+              <button onClick={() => setIsMinicartOpen(!isMinicartOpen)}>
                 <ShoppingCartIcon size={24} color="#0A0A0A" />
                 Carrinho
                 {cartItems.length > 0 && <span>{cartItems.length}</span>}
-              </a>
+              </button>
 
               <Minicart
                 isMinicartOpen={isMinicartOpen}

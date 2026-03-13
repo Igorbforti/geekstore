@@ -5,9 +5,13 @@ import { Slide, toast, type ToastOptions } from "react-toastify";
 interface ProductsContextType {
   handleAddToCart: (
     product: Product,
-    event: React.MouseEvent<HTMLAnchorElement>,
+    event: React.MouseEvent<HTMLButtonElement>,
   ) => void;
   handleDeleteItem: (
+    productId: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => void;
+  handleDecreaseQuantity: (
     productId: number,
     event: React.MouseEvent<HTMLButtonElement>,
   ) => void;
@@ -38,21 +42,9 @@ export const ProductContextProvider = ({
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const toastProps: ToastOptions = {
-    position: "top-right",
-    autoClose: 1000,
-    hideProgressBar: false,
-    closeOnClick: false,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    transition: Slide,
-  };
-
   function handleAddToCart(
     product: Product,
-    event: React.MouseEvent<HTMLAnchorElement>,
+    event: React.MouseEvent<HTMLButtonElement>,
   ) {
     event.preventDefault();
 
@@ -68,7 +60,19 @@ export const ProductContextProvider = ({
       }
       return [...prev, { ...product, quantity: 1 }];
     });
-    toast.success("Produto adicionado ao carrinho!", toastProps);
+  }
+
+  function handleDecreaseQuantity(
+    productId: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) {
+    event.preventDefault();
+
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item,
+      ),
+    );
   }
 
   function handleDeleteItem(
@@ -85,6 +89,7 @@ export const ProductContextProvider = ({
       value={{
         handleAddToCart,
         handleDeleteItem,
+        handleDecreaseQuantity,
         cartItems,
       }}
     >

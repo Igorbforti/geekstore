@@ -13,4 +13,10 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
         background-color: #F9FAFB;
     }
+
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
 `;

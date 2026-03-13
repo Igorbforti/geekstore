@@ -47,10 +47,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <span>R${product.sellerPrice}</span>
           </PriceContainer>
         </CardInfo>
-        <a onClick={(e) => handleAddToCart(product, e)}>
+        <button onClick={(e) => handleAddToCart(product, e)}>
           <ShoppingCartIcon />
           Adicionar
-        </a>
+        </button>
       </CardBody>
     </Card>
   );
