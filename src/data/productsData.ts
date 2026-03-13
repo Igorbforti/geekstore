@@ -83,7 +83,3 @@ export const Products: Product[] = [
     sellerPrice: 129.99,
   },
 ];
-
-export const getAllProducts = (): Product[] => {
-  return Products;
-};

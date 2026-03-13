@@ -74,7 +74,6 @@ export const CardBody = styled.div`
     line-height: 20px;
     letter-spacing: -0.15px;
     text-decoration: none;
-    cursor: pointer;
 
     color: #fff;
     background-color: #09235c;

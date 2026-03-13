@@ -28,8 +28,6 @@ const Header = () => {
 
   const { cartItems } = useContext(ProductContext);
 
-  console.log("TESTE",cartItems)
-
   return (
     <HeaderContainer>
       <Topbar />

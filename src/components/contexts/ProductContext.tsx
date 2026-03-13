@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { Product } from "../../data/productsData";
-import { Slide, toast, type ToastOptions } from "react-toastify";
 
 interface ProductsContextType {
   handleAddToCart: (
@@ -36,8 +35,6 @@ export const ProductContextProvider = ({
     return storedItems ? JSON.parse(storedItems) : [];
   });
 
-  console.log(cartItems);
-
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -70,7 +67,9 @@ export const ProductContextProvider = ({
 
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item,
+        item.id === productId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item,
       ),
     );
   }
